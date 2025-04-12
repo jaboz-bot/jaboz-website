@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jaboz - Robot thú cưng AI</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      color: #ff4500;
+      font-size: 3em;
+      animation: fadeIn 2s ease-in;
+    }
+    p {
+      font-size: 1.2em;
+      color: #555;
+    }
+    .bot-image {
+      width: 150px;
+      height: 150px;
+      margin-top: 20px;
+      animation: moveBot 5s infinite alternate;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes moveBot {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(50px); }
+    }
+  </style>
 </head>
 <body>
   <h1>Xin chào! Tôi là Jaboz 🐾</h1>
   <p>Robot thú cưng mini, cảm ứng, biết nói, có biểu cảm.</p>
   <p>Được phát triển bởi ông chủ tại Hàn Quốc 🇰🇷</p>
+  <img src="https://via.placeholder.com/150" class="bot-image" alt="Jaboz Bot" />
+  <p>Jaboz của bạn đã sẵn sàng để chơi cùng bạn! Hãy vuốt ve tôi để tương tác 🐾</p>
+  <p>Thông minh hơn, vui vẻ hơn, và luôn ở bên bạn!</p>
 </body>
 </html>
