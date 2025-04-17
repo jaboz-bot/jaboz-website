@@ -5,43 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jaboz - Robot thú cưng AI</title>
   <style>
+    /* //=== TOÀN BỘ TRANG === */
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f0f8ff;
+      background: linear-gradient(to right, #f0f8ff, #e0ffff);
       color: #333;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
+
+    /* //=== TIÊU ĐỀ CHÍNH === */
     h1 {
       color: #ff4500;
       font-size: 3em;
+      margin-top: 30px;
       animation: fadeIn 2s ease-in;
     }
-    p {
+
+    /* //=== PHẦN GIỚI THIỆU === */
+    .intro-text {
       font-size: 1.2em;
       color: #555;
+      margin: 10px auto;
+      max-width: 600px;
+      animation: slideUp 1.5s ease-in-out;
     }
+
+    /* //=== ẢNH ROBOT VÀ HIỆU ỨNG === */
     .bot-image {
       width: 150px;
       height: 150px;
-      margin-top: 20px;
+      margin: 20px auto;
       animation: moveBot 5s infinite alternate;
     }
+
+    /* //=== DẤU CHÂN CHÓ === */
+    .paw-prints {
+      font-size: 2em;
+      margin: 20px 0;
+      animation: bounce 2s infinite;
+    }
+
+    /* //=== CHÂN TRANG === */
+    .footer {
+      margin-top: 30px;
+      font-style: italic;
+      color: #666;
+    }
+
+    /* //=== HIỆU ỨNG ANIMATION === */
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
     }
+
     @keyframes moveBot {
       0% { transform: translateX(0); }
       100% { transform: translateX(50px); }
     }
+
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
   </style>
 </head>
 <body>
+
+  <!-- //=== PHẦN CHÀO MỪNG === -->
   <h1>Xin chào! Tôi là Jaboz 🐾</h1>
-  <p>Robot thú cưng mini, cảm ứng, biết nói, có biểu cảm.</p>
-  <p>Được phát triển bởi ông chủ tại Hàn Quốc 🇰🇷</p>
-<img src="https://raw.githubusercontent.com/jaboz-bot/jaboz-images/main/jaboz-png.png" class="bot-image" alt="Jaboz Bot" />
-  <p>Jaboz của bạn đã sẵn sàng để chơi cùng bạn! Hãy vuốt ve tôi để tương tác 🐾</p>
-  <p>Thông minh hơn, vui vẻ hơn, và luôn ở bên bạn!</p>
+
+  <!-- //=== PHẦN GIỚI THIỆU NGẮN === -->
+  <div class="intro-text">
+    <p>Robot thú cưng mini, cảm ứng, biết nói, có biểu cảm.</p>
+    <p>Được phát triển bởi ông chủ tại Hàn Quốc 🇰🇷</p>
+  </div>
+
+  <!-- //=== ẢNH ROBOT === -->
+  <img src="https://raw.githubusercontent.com/jaboz-bot/jaboz-images/main/jaboz-png.png" class="bot-image" alt="Jaboz Bot" />
+
+  <!-- //=== THÔNG ĐIỆP TƯƠNG TÁC === -->
+  <div class="intro-text">
+    <p>Jaboz của bạn đã sẵn sàng để chơi cùng bạn!</p>
+    <p>Hãy vuốt ve tôi để tương tác 🐾</p>
+  </div>
+
+  <!-- //=== DẤU CHÂN CHÓ NGỘ NGHĨNH === -->
+  <div class="paw-prints">🐾 🐾 🐾</div>
+
+  <!-- //=== CHÂN TRANG === -->
+  <div class="footer">
+    <p>Thông minh hơn, vui vẻ hơn, và luôn ở bên bạn!</p>
+  </div>
+
 </body>
 </html>
