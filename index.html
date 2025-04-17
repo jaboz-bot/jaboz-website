@@ -30,13 +30,12 @@
       animation: slideUp 1.5s ease-in-out;
     }
 
-    /* //=== ẢNH ROBOT + MẮT NHÁY === */
+    /* //=== ẢNH ROBOT + DI CHUYỂN === */
     .bot-wrapper {
-      position: relative;
       width: 150px;
       height: 150px;
       margin: 20px auto;
-      animation: moveBot 5s infinite alternate;
+      animation: moveBot 4s ease-in-out infinite alternate;
       cursor: pointer;
     }
 
@@ -45,25 +44,9 @@
       height: 100%;
     }
 
-    .eyes {
-      position: absolute;
-      top: 40px;
-      left: 45px;
-      display: flex;
-      gap: 20px;
-    }
-
-    .eye {
-      width: 15px;
-      height: 15px;
-      background: black;
-      border-radius: 50%;
-      animation: blink 4s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { transform: scaleY(1); }
-      50% { transform: scaleY(0.1); }
+    @keyframes moveBot {
+      0% { transform: translateX(-20px); }
+      100% { transform: translateX(20px); }
     }
 
     /* //=== DẤU CHÂN CHÓ === */
@@ -71,6 +54,13 @@
       font-size: 2em;
       margin: 20px 0;
       animation: bounce 2s infinite;
+    }
+
+    /* //=== VUỐT VE === */
+    #pet-text {
+      cursor: pointer;
+      font-weight: bold;
+      color: #444;
     }
 
     /* //=== TÍNH NĂNG JABOZ === */
@@ -100,48 +90,6 @@
       margin-bottom: 10px;
     }
 
-    /* //=== VIDEO GIỚI THIỆU === */
-    .video-section {
-      margin: 40px auto;
-      max-width: 560px;
-    }
-
-    iframe {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    /* //=== CHAT ẢO === */
-    .chatbox {
-      width: 300px;
-      margin: 30px auto;
-      background: #fff;
-      border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: left;
-    }
-
-    .chat-message {
-      background: #f0f0f0;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-
-    .user-message {
-      background: #d1f7d1;
-      text-align: right;
-    }
-
-    input[type="text"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      margin-top: 10px;
-    }
-
     /* //=== CHÂN TRANG === */
     .footer {
       margin-top: 40px;
@@ -153,11 +101,6 @@
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
-    }
-
-    @keyframes moveBot {
-      0% { transform: translateX(-25px); }
-      100% { transform: translateX(25px); }
     }
 
     @keyframes bounce {
@@ -175,21 +118,17 @@
     <p>Được phát triển bởi ông chủ tại Hàn Quốc 🇰🇷</p>
   </div>
 
-  <!-- //=== ẢNH ROBOT + MẮT NHÁY + CLICK SỦA === -->
+  <!-- //=== ẢNH ROBOT - CLICK SỦA === -->
   <div class="bot-wrapper" onclick="playBark()">
     <img src="https://raw.githubusercontent.com/jaboz-bot/jaboz-images/main/jaboz-png.png" class="bot-image" alt="Jaboz Bot" />
-    <div class="eyes">
-      <div class="eye"></div>
-      <div class="eye"></div>
-    </div>
   </div>
   <audio id="bark-sound" src="https://www.soundjay.com/animal/dog-bark-1.mp3" preload="auto"></audio>
 
   <!-- //=== DẤU CHÂN CHÓ === -->
   <div class="paw-prints">🐾 🐾 🐾</div>
 
-  <!-- //=== VUỐT VE - CLICK PHÁT ÂM THANH === -->
-  <p id="pet-text" style="cursor: pointer;">Jaboz của bạn đã sẵn sàng để chơi cùng bạn! Hãy vuốt ve tôi để tương tác 🐾</p>
+  <!-- //=== VUỐT VE - PHÁT ÂM THANH RÊN RỈ === -->
+  <p id="pet-text">Jaboz của bạn đã sẵn sàng để chơi cùng bạn! Hãy vuốt ve tôi để tương tác 🐾</p>
   <audio id="pet-sound" src="https://www.soundjay.com/animal/dog-whine-1.mp3" preload="auto"></audio>
 
   <!-- //=== TÍNH NĂNG JABOZ === -->
@@ -216,25 +155,12 @@
     </div>
   </div>
 
-  <!-- //=== VIDEO GIỚI THIỆU === -->
-  <div class="video-section">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-            title="Video giới thiệu Jaboz"
-            frameborder="0" allowfullscreen></iframe>
-  </div>
-
-  <!-- //=== CHAT ẢO GIẢ LẬP === -->
-  <div class="chatbox" id="chatbox">
-    <div class="chat-message">Jaboz: Chào bạn! Tôi là thú cưng AI của bạn!</div>
-  </div>
-  <input type="text" placeholder="Gõ gì đó cho Jaboz..." onkeydown="fakeChat(event)" />
-
   <!-- //=== CHÂN TRANG === -->
   <div class="footer">
     <p>Thông minh hơn, vui vẻ hơn, và luôn ở bên bạn!</p>
   </div>
 
-  <!-- //=== SCRIPT CHO ÂM THANH + CHAT + PET === -->
+  <!-- //=== SCRIPT ÂM THANH === -->
   <script>
     function playBark() {
       const bark = document.getElementById('bark-sound');
@@ -247,28 +173,6 @@
       petSound.currentTime = 0;
       petSound.play();
     });
-
-    function fakeChat(event) {
-      if (event.key === 'Enter') {
-        const input = event.target;
-        const msg = input.value.trim();
-        if (msg === '') return;
-        const chatbox = document.getElementById("chatbox");
-
-        const userMsg = document.createElement('div');
-        userMsg.className = 'chat-message user-message';
-        userMsg.textContent = 'Bạn: ' + msg;
-        chatbox.appendChild(userMsg);
-
-        const reply = document.createElement('div');
-        reply.className = 'chat-message';
-        reply.textContent = 'Jaboz: Tôi đang học để trả lời thông minh hơn!';
-        chatbox.appendChild(reply);
-
-        input.value = '';
-        chatbox.scrollTop = chatbox.scrollHeight;
-      }
-    }
   </script>
 </body>
 </html>
