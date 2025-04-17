@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jaboz - Robot thú cưng AI</title>
   <style>
     /* //=== TOÀN BỘ TRANG === */
@@ -156,8 +156,8 @@
     }
 
     @keyframes moveBot {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(50px); }
+      0% { transform: translateX(-25px); }
+      100% { transform: translateX(25px); }
     }
 
     @keyframes bounce {
@@ -187,6 +187,10 @@
 
   <!-- //=== DẤU CHÂN CHÓ === -->
   <div class="paw-prints">🐾 🐾 🐾</div>
+
+  <!-- //=== VUỐT VE - CLICK PHÁT ÂM THANH === -->
+  <p id="pet-text" style="cursor: pointer;">Jaboz của bạn đã sẵn sàng để chơi cùng bạn! Hãy vuốt ve tôi để tương tác 🐾</p>
+  <audio id="pet-sound" src="https://www.soundjay.com/animal/dog-whine-1.mp3" preload="auto"></audio>
 
   <!-- //=== TÍNH NĂNG JABOZ === -->
   <div class="features">
@@ -230,7 +234,7 @@
     <p>Thông minh hơn, vui vẻ hơn, và luôn ở bên bạn!</p>
   </div>
 
-  <!-- //=== SCRIPT CHO ÂM THANH + CHAT === -->
+  <!-- //=== SCRIPT CHO ÂM THANH + CHAT + PET === -->
   <script>
     function playBark() {
       const bark = document.getElementById('bark-sound');
@@ -238,12 +242,18 @@
       bark.play();
     }
 
+    document.getElementById("pet-text").addEventListener("click", () => {
+      const petSound = document.getElementById("pet-sound");
+      petSound.currentTime = 0;
+      petSound.play();
+    });
+
     function fakeChat(event) {
       if (event.key === 'Enter') {
         const input = event.target;
         const msg = input.value.trim();
         if (msg === '') return;
-        const chatbox = document.getElementById('chatbox');
+        const chatbox = document.getElementById("chatbox");
 
         const userMsg = document.createElement('div');
         userMsg.className = 'chat-message user-message';
