@@ -47,6 +47,50 @@
       animation: bounce 2s infinite;
     }
 
+    /* //=== NÚT TƯƠNG TÁC === */
+    .btn-pet {
+      background-color: #ff7f50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1em;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 20px 0;
+      transition: background 0.3s ease;
+    }
+
+    .btn-pet:hover {
+      background-color: #ff6347;
+    }
+
+    /* //=== KHỐI GIỚI THIỆU TÍNH NĂNG === */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px 20px;
+    }
+
+    .feature-box {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 220px;
+      transition: transform 0.3s;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
     /* //=== CHÂN TRANG === */
     .footer {
       margin-top: 30px;
@@ -54,7 +98,7 @@
       color: #666;
     }
 
-    /* //=== HIỆU ỨNG ANIMATION === */
+    /* //=== ANIMATION === */
     @keyframes fadeIn {
       0% { opacity: 0; }
       100% { opacity: 1; }
@@ -78,10 +122,8 @@
 </head>
 <body>
 
-  <!-- //=== PHẦN CHÀO MỪNG === -->
+  <!-- //=== TIÊU ĐỀ VÀ GIỚI THIỆU === -->
   <h1>Xin chào! Tôi là Jaboz 🐾</h1>
-
-  <!-- //=== PHẦN GIỚI THIỆU NGẮN === -->
   <div class="intro-text">
     <p>Robot thú cưng mini, cảm ứng, biết nói, có biểu cảm.</p>
     <p>Được phát triển bởi ông chủ tại Hàn Quốc 🇰🇷</p>
@@ -90,19 +132,49 @@
   <!-- //=== ẢNH ROBOT === -->
   <img src="https://raw.githubusercontent.com/jaboz-bot/jaboz-images/main/jaboz-png.png" class="bot-image" alt="Jaboz Bot" />
 
-  <!-- //=== THÔNG ĐIỆP TƯƠNG TÁC === -->
-  <div class="intro-text">
-    <p>Jaboz của bạn đã sẵn sàng để chơi cùng bạn!</p>
-    <p>Hãy vuốt ve tôi để tương tác 🐾</p>
-  </div>
+  <!-- //=== NÚT TƯƠNG TÁC GÂU GÂU === -->
+  <button class="btn-pet" onclick="playBark()">Vuốt ve tôi</button>
+  <audio id="bark-sound" src="https://www.soundjay.com/animal/dog-bark-1.mp3" preload="auto"></audio>
 
   <!-- //=== DẤU CHÂN CHÓ NGỘ NGHĨNH === -->
   <div class="paw-prints">🐾 🐾 🐾</div>
+
+  <!-- //=== GIỚI THIỆU TÍNH NĂNG === -->
+  <div class="features">
+    <div class="feature-box">
+      <div class="feature-icon">🧠</div>
+      <h3>Thông minh</h3>
+      <p>Jaboz có thể nhận biết cảm xúc và phản hồi tự nhiên.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">🎤</div>
+      <h3>Biết nói</h3>
+      <p>Dùng giọng nói để chào hỏi, trò chuyện và phản ứng.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">❤️</div>
+      <h3>Cảm ứng</h3>
+      <p>Phản ứng khi được vuốt ve hay chạm vào.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">⚡</div>
+      <h3>Năng lượng</h3>
+      <p>Pin sạc tiện lợi, hoạt động cả ngày dài.</p>
+    </div>
+  </div>
 
   <!-- //=== CHÂN TRANG === -->
   <div class="footer">
     <p>Thông minh hơn, vui vẻ hơn, và luôn ở bên bạn!</p>
   </div>
 
+  <!-- //=== SCRIPT PHÁT ÂM THANH GÂU GÂU === -->
+  <script>
+    function playBark() {
+      const bark = document.getElementById('bark-sound');
+      bark.currentTime = 0;
+      bark.play();
+    }
+  </script>
 </body>
 </html>
