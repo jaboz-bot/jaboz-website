@@ -49,11 +49,41 @@
       100% { transform: translateX(20px); }
     }
 
-    /* //=== DẤU CHÂN CHÓ === */
+    /* //=== DẤU CHÂN CHÓ NGẪU NHIÊN === */
     .paw-prints {
+      position: relative;
+      height: 60px;
+    }
+
+    .paw {
+      position: absolute;
       font-size: 2em;
-      margin: 20px 0;
-      animation: bounce 2s infinite;
+      animation: floatPaw 4s ease-in-out infinite, fadeInOut 4s ease-in-out infinite;
+      opacity: 0;
+    }
+
+    .paw:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+    }
+    .paw:nth-child(2) {
+      left: 45%;
+      animation-delay: 1s;
+    }
+    .paw:nth-child(3) {
+      left: 80%;
+      animation-delay: 2s;
+    }
+
+    @keyframes floatPaw {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      25%, 75% { opacity: 1; }
     }
 
     /* //=== VUỐT VE === */
@@ -124,8 +154,12 @@
   </div>
   <audio id="bark-sound" src="https://www.soundjay.com/animal/dog-bark-1.mp3" preload="auto"></audio>
 
-  <!-- //=== DẤU CHÂN CHÓ === -->
-  <div class="paw-prints">🐾 🐾 🐾</div>
+  <!-- //=== DẤU CHÂN CHÓ NGẪU NHIÊN === -->
+  <div class="paw-prints">
+    <span class="paw">🐾</span>
+    <span class="paw">🐾</span>
+    <span class="paw">🐾</span>
+  </div>
 
   <!-- //=== VUỐT VE - PHÁT ÂM THANH RÊN RỈ === -->
   <p id="pet-text">Jaboz của bạn đã sẵn sàng để chơi cùng bạn! Hãy vuốt ve tôi để tương tác 🐾</p>
